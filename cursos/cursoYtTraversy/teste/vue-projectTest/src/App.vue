@@ -1,47 +1,53 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+import { ref } from 'vue';
+
+const name = ref("Natan Pereira");
+const status = ref(true);
+const tasks = ref(['Task One', 'Task Two', 'Task Three']);
+const link = ref('https://google.com');
+const newTask = ref('');
+
+const changeStatus = () => {
+  status.value = !status.value;
+}
+
+const addTask = () => {
+  if(newTask.value.trim() !== ''){
+    tasks.value.push(newTask.value);
+    newTask.value = '';
+  }
+}
+
+const deleteTask = (index) => {
+  tasks.value.splice(index, 1);
+}
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <h1>{{ name }}</h1>
+  <p v-if="status">Status ok</p>
+  <p v-else>Status no ok</p>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <form @submit.prevent="addTask">
+    <label for="newTask">Add Task</label><br>
+    <input type="text" id="newTask" name="newTask" v-model="newTask" />
+    <button type="submit">Submit</button>
+  </form>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <h3>Tasks:</h3>
+  <ul>
+    <li v-for="(task, index) in tasks" :key="task" style="margin-top: 5px;">
+      <span>
+        {{ task }}
+      </span>
+      <button style="margin-left: 5px;" @click="deleteTask(index)">X</button>
+    </li>
+  </ul>
+  <a v-bind:href="link">Click for google</a>
+
+  <br>
+  <button @click="changeStatus">Change</button>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
