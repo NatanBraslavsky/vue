@@ -7,5 +7,5 @@ import NavBar from './components/NavBar.vue';
 
 <template>
   <NavBar/>
-  <Hero/>
+  <Hero title="Test title" description="description test"/>
 </template>
