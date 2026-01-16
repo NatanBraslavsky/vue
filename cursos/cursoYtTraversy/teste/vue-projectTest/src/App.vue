@@ -1,5 +1,6 @@
 <script setup>
 import Hero from './components/Hero.vue';
+import HomeCards from './components/HomeCards.vue';
 import NavBar from './components/NavBar.vue';
 
 
@@ -8,4 +9,5 @@ import NavBar from './components/NavBar.vue';
 <template>
   <NavBar/>
   <Hero title="Test title" description="description test"/>
+  <HomeCards/>
 </template>
