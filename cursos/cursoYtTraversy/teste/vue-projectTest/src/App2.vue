@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
 
 import { onMounted, ref } from 'vue';
 
@@ -60,4 +60,4 @@ onMounted(async () => {
   <br>
   <button @click="changeStatus">Change</button>
 </template>
- -->
+
