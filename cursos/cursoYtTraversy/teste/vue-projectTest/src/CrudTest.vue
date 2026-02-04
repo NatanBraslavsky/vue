@@ -55,7 +55,7 @@ onMounted(async () => {
       <button style="margin-left: 5px;" @click="deleteTask(index)">X</button>
     </li>
   </ul>
-  <a v-bind:href="link">Click for google</a>
+  <a v-bind:href="link">Click for google teste</a>
 
   <br>
   <button @click="changeStatus">Change</button>
