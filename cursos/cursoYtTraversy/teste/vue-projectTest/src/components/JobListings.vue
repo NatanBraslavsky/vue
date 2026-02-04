@@ -12,8 +12,6 @@ defineProps({
     }
 });
 
-
-
 const jobs = ref([]);
 onMounted(async () => {
     try{
@@ -42,7 +40,7 @@ onMounted(async () => {
       <RouterLink
         to="/jobs"
         class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-        >View All Jobs</RouterLink
+        >View All Jobs teste</RouterLink
       >
     </section>
 </template>
